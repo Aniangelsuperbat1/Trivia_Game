@@ -1,4 +1,5 @@
 const counter = document.querySelector("#counter")
+let timeLeft = document.querySelector("#timeLeft")
 const score = document.querySelector("#score")
 const keepTrack = document.querySelector("#keepTrack")
 let question = document.querySelector("#question")
@@ -25,25 +26,36 @@ const trivia = [
 // Swal.fire('Any fool can use a computer')
 
 let newScore = 0
+let timeLeft1 = 10
 
 let rando = () =>{
     return trivia[Math.floor(Math.random() * trivia.length)]
+}
 
+let count = () => {
+    setInterval(() => {
+        if(timeLeft1 <= 0){
+            clearInterval(timeLeft1 = 0)
+        }
+        timeLeft.innerHTML = timeLeft1
+        timeLeft1 -=1
+    }, 1000)
 }
 
 let manOfSteel = () => {
     question.innerHTML = rando().question
     btn1.style.display = "none"
+    count()
 }
 
 let darkKnight = () => {
     console.log("fsdf")
     let nextQuestion = rando().question
     question.innerHTML = nextQuestion
+    count()
 }
 
 let corp = () => {
-    answer.value = ""
     console.log("jhg")
     trivia.forEach((triv) =>{
         if(question.innerHTML === triv.question && answer.value !== triv.answer){
@@ -51,7 +63,6 @@ let corp = () => {
         let currScore = newScore--
         keepTrack.innerHTML = currScore
         console.log(currScore)}
-        
         else if (question.innerHTML === triv.question && answer.value === triv.answer){ 
             alert("right answer")
             let currScore1 = newScore++
@@ -59,6 +70,7 @@ let corp = () => {
             return currScore
         }
     })
+    count()
     
 }
 
