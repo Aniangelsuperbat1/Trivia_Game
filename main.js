@@ -26,6 +26,7 @@ const trivia = [
 // Swal.fire('Any fool can use a computer')
 
 let newScore = 0
+let newerScore = 0
 let timeLeft1 = 10
 
 let rando = () =>{
@@ -49,7 +50,6 @@ let manOfSteel = () => {
 }
 
 let darkKnight = () => {
-    console.log("fsdf")
     let nextQuestion = rando().question
     question.innerHTML = nextQuestion
     count()
@@ -60,14 +60,14 @@ let corp = () => {
     trivia.forEach((triv) =>{
         if(question.innerHTML === triv.question && answer.value !== triv.answer){
         alert("wrong answer") 
-        let currScore = newScore--
-        keepTrack.innerHTML = currScore
-        console.log(currScore)}
+        newScore -= 1
+        keepTrack.innerHTML = newScore
+        console.log(newScore)}
         else if (question.innerHTML === triv.question && answer.value === triv.answer){ 
             alert("right answer")
-            let currScore1 = newScore++
-            keepTrack.innerHTML = currScore1
-            return currScore
+            newScore += 1
+            keepTrack.innerHTML = newScore
+            return newScore
         }
     })
     count()
