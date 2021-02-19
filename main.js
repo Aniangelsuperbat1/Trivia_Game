@@ -9,15 +9,15 @@ const subAnswer = document.querySelector("#subAnswer")
 const trivia = [
     {
         question: "park",
-        answer: ""
+        answer: "John"
     },
     {
         question: "help",
-        answer: "" 
+        answer: "dasd" 
     },
     {
         question: "delay",
-        answer: "" 
+        answer: "fg" 
     }
 ]
 
@@ -25,15 +25,26 @@ const trivia = [
 
 let rando = trivia[Math.floor(Math.random() * trivia.length)]
 
+trivia.forEach((quest) => {
+    subAnswer.addEventListener("click", () =>{
+        if(answer.value !== quest.answer){
+            alert("wrong answer")
+        } else {
+            alert("right answer")
+        }
+    })
+})
+
+let score = 0
+
 let manOfSteel = () => {
-    console.log("go")
     question.innerHTML = rando.question
     btn1.style.display = "none"
-    
 }
 
 let darkKnight = () => {
-
+    console.log("need")
+    question.innerHTML = rando.question
 }
 
 let startGame = () => {
@@ -45,3 +56,4 @@ let nextQuestion = () => {
 }
 
 startGame()
+nextQuestion()
