@@ -1,3 +1,5 @@
+// import {trivia} from "./triviaQ"
+
 const counter = document.querySelector("#counter")
 let timeLeft = document.querySelector("#timeLeft")
 const score = document.querySelector("#score")
@@ -8,26 +10,10 @@ const btn2 = document.querySelector("#next")
 const answer = document.querySelector("#answer")
 const subAnswer = document.querySelector("#subAnswer")
 
-const trivia = [
-    {
-        question: "park",
-        answer: "John"
-    },
-    {
-        question: "help",
-        answer: "dasd" 
-    },
-    {
-        question: "delay",
-        answer: "fg" 
-    }
-]
-
-// Swal.fire('Any fool can use a computer')
-
 let newScore = 0
-let newerScore = 0
 let timeLeft1 = 10
+
+let gem = () => {}
 
 let rando = () =>{
     return trivia[Math.floor(Math.random() * trivia.length)]
@@ -46,6 +32,7 @@ let count = () => {
 let manOfSteel = () => {
     question.innerHTML = rando().question
     btn1.style.display = "none"
+    btn2.classList.remove("hide")
     count()
 }
 
@@ -56,22 +43,28 @@ let darkKnight = () => {
 }
 
 let corp = () => {
-    console.log("jhg")
-    trivia.forEach((triv) =>{
+    trivia.forEach((triv, index) =>{
         if(question.innerHTML === triv.question && answer.value !== triv.answer){
-        alert("wrong answer") 
+        Swal.fire({
+            icon: 'error',
+            title: 'Wrong Answer!',
+            text: 'Something went wrong!'})
         newScore -= 1
         keepTrack.innerHTML = newScore
+        answer.value = ""
         console.log(newScore)}
         else if (question.innerHTML === triv.question && answer.value === triv.answer){ 
-            alert("right answer")
+            Swal.fire({
+            icon: 'success',
+            title: 'Correct!',
+            text: 'You are doing Great!',})
             newScore += 1
             keepTrack.innerHTML = newScore
+            answer.value = ""
+            count()
             return newScore
         }
     })
-    count()
-    
 }
 
 
@@ -88,6 +81,7 @@ let brightestDay = () => {
 }
 
 
+// gem()
 startGame()
 nextQuestion()
 brightestDay()

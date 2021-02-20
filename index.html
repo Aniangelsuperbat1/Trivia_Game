@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Trivia Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h2 id="counter">Time left: <span id="timeLeft">10</span></h2>
-    <div>
+    <div class="countUp">
         <h1 id="Score">Score</h1>
         <h2 id ="keepTrack">0</h2>
     </div>
-    <div>
-        <h1 id="question">Question</h1>
+    <h1 id="question">PRESS START WHEN READY!</h1>
+    <div class="container">
         <button id="start">Start</button>
-        <button id="next">Next</button>
+        <button id="next" class="hide">Next</button>
     </div>
-    <input type="text" id="answer" placeholder="Answer Question Here">
-    <button id="subAnswer">Submit</button>
-
-<script src="main.js"></script>
+    <div class="anotherContainer">
+      <input type="text" id="answer" placeholder="Answer Question Here">
+      <button id="subAnswer">Submit</button>  
+    </div>
+    
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="triviaQ.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
