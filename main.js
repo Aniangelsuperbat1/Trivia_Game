@@ -7,10 +7,13 @@ const keepTrack = document.querySelector("#keepTrack")
 let question = document.querySelector("#question")
 const btn1 = document.querySelector("#start")
 const btn2 = document.querySelector("#next")
-const answer = document.querySelector("#answer")
+const answer = document.querySelector(".answer")
 const subAnswer = document.querySelector("#subAnswer")
+const num = document.querySelector(".num")
+
 
 let newScore = 0
+let newLife = 3
 let timeLeft1 = 10
 
 let gem = () => {}
@@ -40,19 +43,32 @@ let darkKnight = () => {
     let nextQuestion = rando().question
     question.innerHTML = nextQuestion
     count()
+    count()
 }
 
-let corp = () => {
+// let clickStart = () =>{
+//     if(answer.value.length > 0){
+//         alert("Click Start first")
+//         answer.value = ""
+//     } else if(startGame){
+//         return
+//     }}
+
+let laternCorp = () => {
     trivia.forEach((triv, index) =>{
+        // clickStart()
         if(question.innerHTML === triv.question && answer.value !== triv.answer){
         Swal.fire({
             icon: 'error',
             title: 'Wrong Answer!',
             text: 'Something went wrong!'})
-        newScore -= 1
-        keepTrack.innerHTML = newScore
+        newLife -= 1
+        num.innerHTML = newLife
         answer.value = ""
-        console.log(newScore)}
+            if(newLife === 0){
+                alert("GAME OVER MAN! GAME OVER")
+                location.reload()
+            }}
         else if (question.innerHTML === triv.question && answer.value === triv.answer){ 
             Swal.fire({
             icon: 'success',
@@ -61,10 +77,14 @@ let corp = () => {
             newScore += 1
             keepTrack.innerHTML = newScore
             answer.value = ""
-            count()
+                if(newScore === 10){
+                    alert("You have won the game!")
+                    location.reload()
+                }
             return newScore
         }
     })
+    count()
 }
 
 
@@ -77,11 +97,11 @@ let nextQuestion = () => {
 }
 
 let brightestDay = () => {
-    subAnswer.addEventListener("click", corp)
+    subAnswer.addEventListener("click", laternCorp)
 }
 
 
-// gem()
+gem()
 startGame()
 nextQuestion()
 brightestDay()
