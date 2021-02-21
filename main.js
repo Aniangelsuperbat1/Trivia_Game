@@ -14,13 +14,17 @@ const num = document.querySelector(".num")
 
 let newScore = 0
 let newLife = 3
-let timeLeft1 = 10
+let timeLeft1 = 30
 let reload = false
+let audioPlay = () => {
+    let audio = new Audio("Jeopardy-theme-song.mp3")
+    audio.play()
+} 
 
 let gem = () => {
     Swal.fire({
     title: 'Welcome',
-    text: 'to Chinatown',
+    text: '"Lasciate ogni speranza, o voi ch\'intrate"',
     imageUrl: 'party.gif',
     imageWidth: 400,
     imageHeight: 300,
@@ -51,6 +55,7 @@ let count = () => {
 
 let manOfSteel = () => {
     rando()
+    // audioPlay()
     btn1.style.display = "none"
     btn2.classList.remove("hide")
     count()
@@ -71,8 +76,8 @@ let darkKnight = () => {
 
 let laternCorp = () => {
     // clickStart()
+    let removeQuestion = trivia
     trivia.forEach((triv, index) =>{
-        // clickStart()
         if(question.innerHTML === triv.question && answer.value !== triv.answer){
         Swal.fire({
             icon: 'error',
@@ -82,6 +87,9 @@ let laternCorp = () => {
         newLife -= 1
         num.innerHTML = newLife
         answer.value = ""
+        rando()
+        removeQuestion.splice(index, 1)
+        console.log(trivia)
             if(newLife === 0){
                 Swal.fire({
                 icon: 'error',
@@ -95,21 +103,24 @@ let laternCorp = () => {
             icon: 'success',
             title: 'Correct!',
             text: 'You are doing Great!',
-            imageUrl: "giphy.gif"})
+            imageUrl: "Kobe.gif"})
             newScore += 1
             keepTrack.innerHTML = newScore
             answer.value = ""
-                if(newScore === 1){
+            rando()
+            removeQuestion.splice(index, 1)
+            console.log(trivia)
+                if(newScore === 2){
                     Swal.fire({
-                        title: 'Custom width, padding, background.',
+                        title: 'CONGRATULATIONS ON YOU WIN',
                         width: 600,
                         padding: '3em',
-                        background: '#fff url(/images/trees.png)',
+                        background: '#fff url(main-dccomics.jpg)',
                         backdrop: `
                         rgba(0,0,123,0.4)
-                        url('holy_trinity.gif')
-                        left-top
-                        no repeat`
+                        url('symbols.gif')
+                        left top
+                        no-repeat`
                     })
                     newScore
                 }
