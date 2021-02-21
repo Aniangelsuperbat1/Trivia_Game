@@ -15,17 +15,34 @@ const num = document.querySelector(".num")
 let newScore = 0
 let newLife = 3
 let timeLeft1 = 10
+let reload = false
 
-let gem = () => {}
+let gem = () => {
+    Swal.fire({
+    title: 'Welcome',
+    text: 'to Chinatown',
+    imageUrl: 'party.gif',
+    imageWidth: 400,
+    imageHeight: 300,
+    imageAlt: 'Custom image',
+})
+}
 
 let rando = () =>{
-    return trivia[Math.floor(Math.random() * trivia.length)]
+    let superHero = trivia[Math.floor(Math.random() * trivia.length)]
+    let heroes = superHero.question
+    question.innerHTML = heroes
 }
 
 let count = () => {
     setInterval(() => {
         if(timeLeft1 <= 0){
             clearInterval(timeLeft1 = 0)
+            // Swal.fire({
+            // icon: 'error',
+            // title: 'TIME/S UP',
+            // text: 'Better luck next Question',
+            // imageUrl: "Smash_bro.gif"})
         }
         timeLeft.innerHTML = timeLeft1
         timeLeft1 -=1
@@ -33,16 +50,14 @@ let count = () => {
 }
 
 let manOfSteel = () => {
-    question.innerHTML = rando().question
+    rando()
     btn1.style.display = "none"
     btn2.classList.remove("hide")
     count()
 }
 
 let darkKnight = () => {
-    let nextQuestion = rando().question
-    question.innerHTML = nextQuestion
-    count()
+    rando()
     count()
 }
 
@@ -55,36 +70,52 @@ let darkKnight = () => {
 //     }}
 
 let laternCorp = () => {
+    // clickStart()
     trivia.forEach((triv, index) =>{
         // clickStart()
         if(question.innerHTML === triv.question && answer.value !== triv.answer){
         Swal.fire({
             icon: 'error',
             title: 'Wrong Answer!',
-            text: 'Something went wrong!'})
+            text: 'Not Tremendous',
+            imageUrl: "wrong.gif"})
         newLife -= 1
         num.innerHTML = newLife
         answer.value = ""
             if(newLife === 0){
-                alert("GAME OVER MAN! GAME OVER")
-                location.reload()
-            }}
+                Swal.fire({
+                icon: 'error',
+                title: 'YOU HAVE LOST THE GAME',
+                text: 'You have no health remaining',
+                imageUrl: "game_over.gif",
+            })
+        }}
         else if (question.innerHTML === triv.question && answer.value === triv.answer){ 
             Swal.fire({
             icon: 'success',
             title: 'Correct!',
-            text: 'You are doing Great!',})
+            text: 'You are doing Great!',
+            imageUrl: "giphy.gif"})
             newScore += 1
             keepTrack.innerHTML = newScore
             answer.value = ""
-                if(newScore === 10){
-                    alert("You have won the game!")
-                    location.reload()
+                if(newScore === 1){
+                    Swal.fire({
+                        title: 'Custom width, padding, background.',
+                        width: 600,
+                        padding: '3em',
+                        background: '#fff url(/images/trees.png)',
+                        backdrop: `
+                        rgba(0,0,123,0.4)
+                        url('holy_trinity.gif')
+                        left-top
+                        no repeat`
+                    })
+                    newScore
                 }
-            return newScore
         }
     })
-    count()
+    // count()
 }
 
 
@@ -105,3 +136,6 @@ gem()
 startGame()
 nextQuestion()
 brightestDay()
+
+
+
