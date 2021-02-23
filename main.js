@@ -15,12 +15,12 @@ let timeLeft1 = 10
 let superHero = null
 let startClick = false
 
-let audioPlay = () => {
+const audioPlay = () => {
     let audio = new Audio("Jeopardy-theme-song.mp3")
     audio.play()
 } 
 
-let gem = () => {
+const gem = () => {
     Swal.fire({
     title: 'Welcome',
     text: '"Lasciate ogni speranza, o voi ch\'intrate"',
@@ -28,34 +28,44 @@ let gem = () => {
     imageWidth: 400,
     imageHeight: 300,
     imageAlt: 'Custom image',
+    confirmButtonText: "AVENGERS ASSMEBLED!"
 })
 }
 
-let rando = () =>{
+const rando = () =>{
     let randomIndex = Math.floor(Math.random() * trivia.length)
     superHero = trivia[randomIndex]
     trivia.splice(randomIndex, 1)
     let heroes = superHero.question
     question.innerHTML = heroes
+    clearInterval(timer)
 }
 
+let timer; 
 
-let count = () => {
+const count = () => {
     timeLeft1 = 10
-    setInterval(() => {
+    timer = setInterval(() => {
         if(timeLeft1 <= 0){
             clearInterval(timeLeft1 = 0)
-            // Swal.fire({
-            // icon: 'error',
-            // title: 'TIME/S UP',
-            // text: 'Better luck next Question',
-            // imageUrl: "Smash_bro.gif"})
+        } else if(timeLeft1 === 1 && newLife !== 0){
+            Swal.fire({
+            icon: 'error',
+            title: "TIME'S UP",
+            text: 'Better luck next Question',
+            imageUrl: "./gifs/outta_time.gif",
+            confirmButtonText: "If I must",
+            }) .then((result) => {
+                if (result.isConfirmed) {
+                    rando()
+                    count()
+                } 
+            })
         }
-        
-        timeLeft.innerHTML = timeLeft1
-        timeLeft1 -=1
-    }, 1000) 
-    }
+    timeLeft.innerHTML = timeLeft1
+    timeLeft1 -=1
+}, 1000) 
+}
 
 const manOfSteel = () => {
     rando()
@@ -76,7 +86,7 @@ const isClicked = () => {
         Swal.fire({
             icon: 'warning',
             title: 'Push the START button first',
-            text: 'Don\'t be a hero',
+            text: 'Don\'t be a Hero, or be a Hero, I can\'t tell you what to do, I am not your mother.',
             imageUrl: "./gifs/push_button.gif"})
         }
 }
@@ -87,11 +97,13 @@ const answered = () => {
             icon: 'error',
             title: 'Wrong Answer!',
             text: 'Not Tremendous',
-            imageUrl: "./gifs/wrong.gif"})
+            imageUrl: "./gifs/wrong.gif",
+            confirmButtonText: "If I must",})
         newLife -= 1
         num.innerHTML = newLife
         answer.value = ""
         rando()
+        
     } else{
          Swal.fire({
             icon: 'success',
@@ -108,6 +120,24 @@ const answered = () => {
     //     }
 }
 
+const newGame = () => {
+    Swal.fire({
+        icon: 'error',
+        title: 'why',
+        text: 'fsf',
+        imageUrl: "./gifs/Kobe.gif",
+        showDenyButton: true,
+        confirmButtonText: "Yes",
+        denyButtonText: "No"
+    }) .then((result) => {
+  if (result.isConfirmed) {
+    location.reload()
+  } else if (result.isDenied) {
+    console.log("ffsdf")
+  }
+})
+}
+
 const winOrLose = () => {
     if(newLife === 0){
         Swal.fire({
@@ -121,23 +151,23 @@ const winOrLose = () => {
             title: 'CONGRATULATIONS ON YOUR WIN',
             width: 600,
             padding: '3em',
-            background: '#fff url(main-dccomics.jpg)',
+            background: '#fff url(./gifs/main-dccomics.jpg)',
             backdrop: `
             rgba(0,0,123,0.4)
             url('./gifs/symbols.gif')
             left top
             no-repeat`
-        })
-    }  
+        })  
+    }
+    
 }
 
 const laternCorp = () => {
     isClicked()
     answered()
     winOrLose()
-
-}
-    
+    count()
+} 
 
 const startGame = () => {
     btn1.addEventListener("click", manOfSteel)
@@ -155,6 +185,7 @@ gem()
 startGame()
 nextQuestion()
 brightestDay()
+
 
 
 

@@ -17,7 +17,7 @@ const trivia = [
     },
     {
         question: "Name the 5 Robins in chronological order",
-        Answer: "Dick Grayson Jason Todd, Tim Drake, Stephanie Brown, Damian Wayne"
+        answer: "Dick Grayson, Jason Todd, Tim Drake, Stephanie Brown, Damian Wayne"
     },
     {
         question: 'Finish this quote "You\'ve got heart kid, where are you from?"',
@@ -28,7 +28,7 @@ const trivia = [
         answer: "Static Shock"
     },
     {
-        question: "What Avenger said...'I can do this all day",
+        question: "What Avenger said...'I can do this all day'",
         answer: "Captain America"
     },
     {
@@ -38,6 +38,26 @@ const trivia = [
     {
         question: "From where does Ras Al Ghul get his immorality?",
         answer: "Lazarus Pit"
+    },
+    {
+        question: "Who said... 'There is a difference between you and me. We both looked into the abyss, but when it looked back, you blinked'",
+        answer: "Batman"
+    },
+    {
+        question: "Who said... 'You stay, I go, no following'",
+        answer: "Iron Giant"
+    },
+    {
+        question: "This character made his first apperance in Infinte Crisis in issue #3 under the alias Blue Beeatle",
+        answer: "Jamie Ryes"
+    },
+    {
+        question: "In what city, State is Clark Kent from?",
+        answer: "Smallvile, Kansas"
+    },
+    {
+        question: "This villian's origin story is seen  in Detective comics 'The Man behind the Red Hood'",
+        answer: "Joke"
     }
 ]
 

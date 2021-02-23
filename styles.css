@@ -1,17 +1,40 @@
 body {
-  padding: 0;
+  /* padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* background-image: url() */
   font-family: sans-serif;
+   background: url(./gifs/wp148216.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  /* background: rgba(255, 249, 192, 0.7); */
 }
 
 #counter {
   text-align: center;
+  margin: 50px;
+  
 }
 
 .countUp {
-  text-align: right;
+    float :right;
+    padding: 4rem;
+}
+
+.hero{
+    float: left;
+    padding: 4rem
+}
+
+/* #keepTrack{
+    
+} */
+
+.box{
+  font-size: 20px;
+  max-width: 70%;
+  margin: auto
 }
 
 #question {
@@ -33,6 +56,7 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  cursor: pointer;
 }
 
 #next {
@@ -43,24 +67,28 @@ body {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .anotherContainer {
   margin: 50px;
   display: block;
   text-align: center;
+  cursor: pointer;
 }
 
-#answer {
+.answer {
   margin: 10px 10px 10px 10px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-#subanswer {
-  text-align: center;
-  color: red;
-  background-color: Black;
+#subAnswer {
+  cursor: pointer;
 }
 
 .hide {
   display: none;
 }
+
+
