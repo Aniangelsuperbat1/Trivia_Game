@@ -11,7 +11,7 @@ const num = document.querySelector(".num")
 
 let newScore = 0
 let newLife = 3
-let timeLeft1 = 10
+let timeLeft1 = 30
 let superHero = null
 let startClick = false
 let timer; 
@@ -39,7 +39,7 @@ const rando = () =>{
 }
 
 const count = () => {
-    timeLeft1 = 10
+    timeLeft1 = 30
     timer = setInterval(() => {
         if(timeLeft1 <= 0){
             clearInterval(timeLeft1 = 0)
@@ -64,7 +64,7 @@ const count = () => {
 
 const manOfSteel = () => {
     rando()
-    // audioPlay()
+    audioPlay()
     btn1.style.display = "none"
     btn2.classList.remove("hide")
     startClick = true
@@ -90,7 +90,7 @@ const isClicked = () => {
 
 const answered = () => {
     if(answer.value !== superHero.answer){
-        timeLeft1 = 10
+        timeLeft1 = 30
         timeLeft.innerHTML = timeLeft1
         Swal.fire({
             icon: 'error',
@@ -100,16 +100,14 @@ const answered = () => {
             confirmButtonText: "OK",
         })  .then((result) => {
             if (result.isConfirmed) {
-                rando()
                 count()
             } 
         })
         newLife -= 1
         num.innerHTML = newLife
         answer.value = ""
-        // rando()
     } else{
-        timeLeft1 = 10
+        timeLeft1 = 30
         timeLeft.innerHTML = timeLeft1
         Swal.fire({
             icon: 'success',
@@ -119,14 +117,12 @@ const answered = () => {
             confirmButtonText: "OK",
         }) .then((result) => {
             if (result.isConfirmed) {
-                rando()
                 count()
             } 
         })
         newScore += 1
         keepTrack.innerHTML = newScore
         answer.value = ""
-        // rando()
     }
 }
 
@@ -177,7 +173,7 @@ const winOrLose = () => {
             if (result.isConfirmed) {
                 Swal.fire({
                 icon: 'success',
-                title: '<b style="color:white; font-size: 40px;">CONGRATULATIONS <br> <b style = "font-size: 40px";>You Have Become The Hero The World Needs But Not The Hero It Deserves </b>',
+                title: '<b style="color:white; font-size: 40px;">CONGRATULATIONS!!! <br> <b style = "font-size: 40px";>You Have Become The Hero The World Needs But Not The Hero It Deserves </b>',
                 background: "rgb(255,0,0,.1)",
                 imageUrl: "./gifs/JL_universe.jpg",
                 confirmButtonText: "YAY! I Am a Big Kid Now",
@@ -189,7 +185,7 @@ const winOrLose = () => {
             }) .then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
-                    icon: 'error',
+                    icon: 'success',
                     title: '<b style="color:white">Would You Like To Play Again?</b>',
                     background: "rgb(255,0,0,.1)",
                     imageUrl: "./gifs/Homer_win.gif",
