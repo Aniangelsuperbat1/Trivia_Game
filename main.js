@@ -90,7 +90,6 @@ const isClicked = () => {
 
 const answered = () => {
     if(answer.value !== superHero.answer){
-        clearInterval(timer)
         timeLeft1 = 10
         timeLeft.innerHTML = timeLeft1
         Swal.fire({
@@ -110,11 +109,20 @@ const answered = () => {
         answer.value = ""
         // rando()
     } else{
-         Swal.fire({
+        timeLeft1 = 10
+        timeLeft.innerHTML = timeLeft1
+        Swal.fire({
             icon: 'success',
             title: '<b style="color:white; font-size: 50px;">CORRECT <br> <b style = "font-size: 40px";>You are Doing Great!. </b>',
             background: "rgb(255,0,0,.1)",
-            imageUrl: "./gifs/iron_man.gif",})
+            imageUrl: "./gifs/iron_man.gif",
+            confirmButtonText: "OK",
+        }) .then((result) => {
+            if (result.isConfirmed) {
+                rando()
+                count()
+            } 
+        })
         newScore += 1
         keepTrack.innerHTML = newScore
         answer.value = ""
@@ -187,6 +195,7 @@ const laternCorp = () => {
     isClicked()
     answered()
     winOrLose()
+    rando()
 } 
 
 const startGame = () => {
@@ -205,7 +214,4 @@ gem()
 startGame()
 nextQuestion()
 brightestDay()
-
-
-
 
