@@ -25,7 +25,7 @@ const gem = () => {
     Swal.fire({
         title: '<b style="color:white; font-size: 50px;">Welcome <br> <b style = "font-size: 30px";>Lasciate Ogni Speranza, Voi Ch\'entrate.</b>',
         background: "rgb(255,0,0,.1)",
-        imageUrl: "./gifs/avengers_assemble2.gif",
+        imageUrl: "./gifs/Avengers_assemble2.gif",
         confirmButtonText: 'AVENGERS!!! ASSEMBLE!',})
     }
 
