@@ -36,7 +36,7 @@ No installations needed.
 
 ## User Stories
 
-
+The users of this in broswer game will be anyone who likes Superheroes and trivia games. Users should expect to be prompted when they score a point or lose a life. They also want to be notified if they win or lose the game. This way, the game is much more fun and interactive.
 
 ## Contribute
 
