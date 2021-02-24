@@ -14,6 +14,7 @@ let newLife = 3
 let timeLeft1 = 10
 let superHero = null
 let startClick = false
+let timer; 
 
 const audioPlay = () => {
     let audio = new Audio("Jeopardy-theme-song.mp3")
@@ -22,15 +23,11 @@ const audioPlay = () => {
 
 const gem = () => {
     Swal.fire({
-    title: 'Welcome',
-    text: '"Lasciate ogni speranza, o voi ch\'intrate"',
-    imageUrl: './gifs/Avengers_assemble2.gif',
-    imageWidth: 400,
-    imageHeight: 300,
-    imageAlt: 'Custom image',
-    confirmButtonText: "AVENGERS ASSMEBLED!"
-})
-}
+        title: '<b style="color:white; font-size: 50px;">Welcome <br> <b style = "font-size: 30px";>Lasciate Ogni Speranza, Voi Ch\'entrate.</b>',
+        background: "rgb(255,0,0,.1)",
+        imageUrl: "./gifs/avengers_assemble2.gif",
+        confirmButtonText: 'AVENGERS!!! ASSEMBLE!',})
+    }
 
 const rando = () =>{
     let randomIndex = Math.floor(Math.random() * trivia.length)
@@ -41,20 +38,18 @@ const rando = () =>{
     clearInterval(timer)
 }
 
-let timer; 
-
 const count = () => {
     timeLeft1 = 10
     timer = setInterval(() => {
         if(timeLeft1 <= 0){
             clearInterval(timeLeft1 = 0)
-        } else if(timeLeft1 === 1 && newLife !== 0){
+        } else if(timeLeft1 === 1 && newLife !== 0 && newScore !== 1){
             Swal.fire({
             icon: 'error',
-            title: "TIME'S UP",
-            text: 'Better luck next Question',
+            title: '<b style="color:white; font-size: 50px;">TIME IS UP <br> <b style = "font-size: 40px";>Better Luck Next Question. </b>',
+            background: "rgb(255,0,0,.1)",
             imageUrl: "./gifs/outta_time.gif",
-            confirmButtonText: "If I must",
+            confirmButtonText: 'Next Question',
             }) .then((result) => {
                 if (result.isConfirmed) {
                     rando()
@@ -85,82 +80,101 @@ const isClicked = () => {
     if(startClick === false){
         Swal.fire({
             icon: 'warning',
-            title: 'Push the START button first',
-            text: 'Don\'t be a Hero, or be a Hero, I can\'t tell you what to do, I am not your mother.',
-            imageUrl: "./gifs/push_button.gif"})
-        }
+            title: '<b style="color:white; font-size: 50px;">Push START button first <br> <b style = "font-size: 40px";>Don\'t be a Hero. Or be a Hero. I can\'t tell you what to do, I am not your Mother</b>',
+            confirmButtonText: 'Be The Hero You Were Born To Be',
+            background: "rgb(255,0,0,.1)",
+            imageUrl: "./gifs/push_button.gif"
+        })
+    }
 }
 
 const answered = () => {
     if(answer.value !== superHero.answer){
         Swal.fire({
             icon: 'error',
-            title: 'Wrong Answer!',
-            text: 'Not Tremendous',
+            title: '<b style="color:white; font-size: 50px;">WRONG ANSWER <br> <b style = "font-size: 40px";>Not Tremendous. </b>',
+            background: "rgb(255,0,0,.1)",
             imageUrl: "./gifs/wrong.gif",
-            confirmButtonText: "If I must",})
+            confirmButtonText: "OK",
+        }) 
+        // timeLeft.innerHTML = 0
         newLife -= 1
         num.innerHTML = newLife
         answer.value = ""
         rando()
-        
     } else{
          Swal.fire({
             icon: 'success',
-            title: 'Correct!',
-            text: 'You are doing Great!',
-            imageUrl: "./gifs/iron_man.gif"})
+            title: '<b style="color:white; font-size: 50px;">CORRECT <br> <b style = "font-size: 40px";>You are Doing Great!. </b>',
+            background: "rgb(255,0,0,.1)",
+            imageUrl: "./gifs/iron_man.gif",})
         newScore += 1
         keepTrack.innerHTML = newScore
         answer.value = ""
         rando()
     }
-    // if(answer.value.length > 0){
-    //         answer.value = ""
-    //     }
-}
-
-const newGame = () => {
-    Swal.fire({
-        icon: 'error',
-        title: 'why',
-        text: 'fsf',
-        imageUrl: "./gifs/Kobe.gif",
-        showDenyButton: true,
-        confirmButtonText: "Yes",
-        denyButtonText: "No"
-    }) .then((result) => {
-  if (result.isConfirmed) {
-    location.reload()
-  } else if (result.isDenied) {
-    console.log("ffsdf")
-  }
-})
 }
 
 const winOrLose = () => {
     if(newLife === 0){
         Swal.fire({
-        icon: 'error',
-        title: 'YOU HAVE LOST THE GAME',
-        text: 'You have no health remaining',
+          title: '<b style="color:white; font-size: 50px;">GAME OVER <br> <b style = "font-size: 30px";>You Have Lost The Game. </b>',
+        background: "rgb(255,0,0,.1)",
         imageUrl: "./gifs/game_over.gif",
-    })
-}   else if (newScore === 2) {
+        confirmButtonText: 'You did not become the hero your dog/cat thinks you are',
+    }) .then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '<b style="color:white">Would You Like To Play Again?</b>',
+                        background: "rgb(255,0,0,.1)",
+                        imageUrl: "./gifs/deadpool_playagain.gif",
+                        showDenyButton: true,
+                        confirmButtonText: "Play Again",
+                        denyButtonText: "Do not Play Again",
+                    }) .then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload()
+                        } else if (result.isDenied) {
+                            location.reload()
+                        }
+                    })
+                } 
+            })
+        } 
+    else if (newScore === 2) {
         Swal.fire({
-            title: 'CONGRATULATIONS ON YOUR WIN',
-            width: 600,
-            padding: '3em',
-            background: '#fff url(./gifs/main-dccomics.jpg)',
+            icon: 'success',
+            title: '<b style="color:white; font-size: 40px;">CONGRATULATIONS <br> <b style = "font-size: 40px";>You Have Become The Hero The World Needs But Not The Hero It Deserves </b>',
+            background: "rgb(255,0,0,.1)",
+            imageUrl: "./gifs/JL_universe.jpg",
+            confirmButtonText: "YAY! I Am a Big Kid Now",
             backdrop: `
             rgba(0,0,123,0.4)
-            url('./gifs/symbols.gif')
+            url('./gifs/roof_bat.gif')
             left top
             no-repeat`
-        })  
+        }) .then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '<b style="color:white">Would You Like To Play Again?</b>',
+                        imageUrl: "./gifs/Homer_win.gif",
+                        background: "rgb(255,0,0,.1)",
+                        showDenyButton: true,
+                        confirmButtonText: "Play Again",
+                        denyButtonText: "Do not Play Again",
+                    }) .then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload()
+                        } else if (result.isDenied) {
+                            location.reload()
+                        }
+                    })
+                } 
+            }) 
+        }
     }
-    
-}
 
 const laternCorp = () => {
     isClicked()
