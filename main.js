@@ -90,18 +90,25 @@ const isClicked = () => {
 
 const answered = () => {
     if(answer.value !== superHero.answer){
+        clearInterval(timer)
+        timeLeft1 = 10
+        timeLeft.innerHTML = timeLeft1
         Swal.fire({
             icon: 'error',
             title: '<b style="color:white; font-size: 50px;">WRONG ANSWER <br> <b style = "font-size: 40px";>Not Tremendous. </b>',
             background: "rgb(255,0,0,.1)",
             imageUrl: "./gifs/wrong.gif",
             confirmButtonText: "OK",
-        }) 
-        // timeLeft.innerHTML = 0
+        })  .then((result) => {
+                if (result.isConfirmed) {
+                    rando()
+                    count()
+                } 
+            })
         newLife -= 1
         num.innerHTML = newLife
         answer.value = ""
-        rando()
+        // rando()
     } else{
          Swal.fire({
             icon: 'success',
@@ -111,7 +118,7 @@ const answered = () => {
         newScore += 1
         keepTrack.innerHTML = newScore
         answer.value = ""
-        rando()
+        // rando()
     }
 }
 
@@ -180,7 +187,6 @@ const laternCorp = () => {
     isClicked()
     answered()
     winOrLose()
-    count()
 } 
 
 const startGame = () => {
