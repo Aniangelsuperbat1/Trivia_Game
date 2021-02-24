@@ -8,9 +8,10 @@ If players answer a trivia question correctly, their score will increase and if 
 
 ## Technologies/Frameworks used
 
-HTML
-CSS
-JavaScript
+HTML,
+CSS,
+JavaScript,
+https://sweetalert2.github.io/
 
 ## ScreenShot of App
 
