@@ -99,11 +99,11 @@ const answered = () => {
             imageUrl: "./gifs/wrong.gif",
             confirmButtonText: "OK",
         })  .then((result) => {
-                if (result.isConfirmed) {
-                    rando()
-                    count()
-                } 
-            })
+            if (result.isConfirmed) {
+                rando()
+                count()
+            } 
+        })
         newLife -= 1
         num.innerHTML = newLife
         answer.value = ""
@@ -133,63 +133,81 @@ const answered = () => {
 const winOrLose = () => {
     if(newLife === 0){
         Swal.fire({
-          title: '<b style="color:white; font-size: 50px;">GAME OVER <br> <b style = "font-size: 30px";>You Have Lost The Game. </b>',
-        background: "rgb(255,0,0,.1)",
-        imageUrl: "./gifs/game_over.gif",
-        confirmButtonText: 'You did not become the hero your dog/cat thinks you are',
-    }) .then((result) => {
+            icon: 'error',
+            title: '<b style="color:white; font-size: 50px;">WRONG ANSWER <br> <b style = "font-size: 40px";>Not Tremendous. </b>',
+            background: "rgb(255,0,0,.1)",
+            imageUrl: "./gifs/wrong.gif",
+            confirmButtonText: "OK",
+        }) .then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: '<b style="color:white; font-size: 50px;">GAME OVER <br> <b style = "font-size: 30px";>You Have Lost The Game. </b>',
+                background: "rgb(255,0,0,.1)",
+                imageUrl: "./gifs/game_over.gif",
+                confirmButtonText: 'You did not become the hero your dog/cat thinks you are',
+            }) .then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                icon: 'error',
+                title: '<b style="color:white">Would You Like To Play Again?</b>',
+                background: "rgb(255,0,0,.1)",
+                imageUrl: "./gifs/deadpool_playagain.gif",
+                showDenyButton: true,
+                confirmButtonText: "Play Again",
+                denyButtonText: "Do not Play Again",
+            }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: '<b style="color:white">Would You Like To Play Again?</b>',
-                        background: "rgb(255,0,0,.1)",
-                        imageUrl: "./gifs/deadpool_playagain.gif",
-                        showDenyButton: true,
-                        confirmButtonText: "Play Again",
-                        denyButtonText: "Do not Play Again",
-                    }) .then((result) => {
-                        if (result.isConfirmed) {
-                            location.reload()
-                        } else if (result.isDenied) {
-                            location.reload()
-                        }
-                    })
-                } 
+                    location.reload()
+                } else if (result.isDenied) {
+                    location.reload()
+                }
             })
         } 
-    else if (newScore === 2) {
+    })  
+}})
+}
+     else if(newScore === 2){
         Swal.fire({
             icon: 'success',
-            title: '<b style="color:white; font-size: 40px;">CONGRATULATIONS <br> <b style = "font-size: 40px";>You Have Become The Hero The World Needs But Not The Hero It Deserves </b>',
+            title: '<b style="color:white; font-size: 50px;">CORRECT <br> <b style = "font-size: 40px";>You are Doing Great!. </b>',
             background: "rgb(255,0,0,.1)",
-            imageUrl: "./gifs/JL_universe.jpg",
-            confirmButtonText: "YAY! I Am a Big Kid Now",
-            backdrop: `
-            rgba(0,0,123,0.4)
-            url('./gifs/roof_bat.gif')
-            left top
-            no-repeat`
+            imageUrl: "./gifs/iron_man.gif",
+            confirmButtonText: "OK",
         }) .then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                icon: 'success',
+                title: '<b style="color:white; font-size: 40px;">CONGRATULATIONS <br> <b style = "font-size: 40px";>You Have Become The Hero The World Needs But Not The Hero It Deserves </b>',
+                background: "rgb(255,0,0,.1)",
+                imageUrl: "./gifs/JL_universe.jpg",
+                confirmButtonText: "YAY! I Am a Big Kid Now",
+                backdrop: `
+                rgba(0,0,123,0.4)
+                url('./gifs/roof_bat.gif')
+                left top
+                no-repeat`
+            }) .then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
-                        icon: 'success',
-                        title: '<b style="color:white">Would You Like To Play Again?</b>',
-                        imageUrl: "./gifs/Homer_win.gif",
-                        background: "rgb(255,0,0,.1)",
-                        showDenyButton: true,
-                        confirmButtonText: "Play Again",
-                        denyButtonText: "Do not Play Again",
-                    }) .then((result) => {
-                        if (result.isConfirmed) {
-                            location.reload()
-                        } else if (result.isDenied) {
-                            location.reload()
-                        }
-                    })
-                } 
-            }) 
-        }
-    }
+                    icon: 'error',
+                    title: '<b style="color:white">Would You Like To Play Again?</b>',
+                    background: "rgb(255,0,0,.1)",
+                    imageUrl: "./gifs/Homer_win.gif",
+                    showDenyButton: true,
+                    confirmButtonText: "Play Again",
+                    denyButtonText: "Do not Play Again",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload()
+                    } else if (result.isDenied) {
+                        location.reload()
+                    }
+                })
+            } 
+        })
+    }}
+)}
+}
 
 const laternCorp = () => {
     isClicked()
