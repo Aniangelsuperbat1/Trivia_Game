@@ -1,44 +1,67 @@
 body {
-  /* padding: 0;
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-   background: url(./gifs/wp148216.jpg) no-repeat center center fixed; 
+   background: url(flash_background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; */
-  /* background: rgba(255, 249, 192, 0.7); */
+  background-size: cover; 
 }
 
 #counter {
   text-align: center;
-  margin: 50px;
+  margin: auto;
+  border: 10px;
+  background-color: rgb(255,0,0,.8);
+  border:4px solid rgb(50,50,50,.5);
+  width: 200px;
+  height: 50px;
   
 }
 
 .countUp {
     float :right;
+    color: rgba(255, 165, 0);
     padding: 4rem;
+    position: relative;
+    top: 200px;
+    right: 500px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px;
+    width: 105px;
+    height: 105px;
 }
 
 .hero{
+  justify-content: center;
     float: left;
-    padding: 4rem
-}
-
-/* #keepTrack{
+    padding: 4rem;
+    color: rgba(1, 152, 117);
+    width: 105px;
+    height: 105px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px;
+    position: relative;
+    top: 200px;
+    left: 500px
     
-} */
+}
 
 .box{
   font-size: 20px;
   max-width: 70%;
-  margin: auto
+  margin: auto;
 }
 
 #question {
   text-align: center;
+  background-color: rgb(255,0,0,.5);
+  margin:50px auto;
+  border:4px solid rgb(50,50,50);
+  width: 700px;
+  height: 100px;
 }
 
 .container {
