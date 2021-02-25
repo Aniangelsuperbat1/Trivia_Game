@@ -64,7 +64,7 @@ const count = () => {
 
 const manOfSteel = () => {
     rando()
-    audioPlay()
+    // audioPlay()
     btn1.style.display = "none"
     btn2.classList.remove("hide")
     startClick = true
