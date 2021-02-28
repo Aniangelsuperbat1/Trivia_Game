@@ -4,13 +4,16 @@ My Superhero Trivia Game is a fun and interactive contest consisting of question
 
 ## Features
 
-If players answer a trivia question correctly, their score will increase and if they answer a question incorrectly, they will lose a life. Players will be alerted if they answer a question correctly or incorrectly.   
+If players answer a trivia question correctly, their score will increase and if they answer a question incorrectly, they will lose a life. Players will be alerted if they answer a question correctly or incorrectly.
 
 ## Technologies/Frameworks used
 
 HTML,
 CSS,
 JavaScript,
+
+<!-- here, describe the package name you used and how/why you used it, instead of just linking to its repo -->
+
 https://sweetalert2.github.io/
 
 ## ScreenShot of App
@@ -18,6 +21,8 @@ https://sweetalert2.github.io/
 ![Trivia Game - Google Chrome 2_24_2021 3_05_18 PM](https://user-images.githubusercontent.com/47430018/109059025-bb624280-76b1-11eb-9215-0c10a68c45ac.png)
 
 ## Wireframes
+
+<!-- These aren't actually wireframes? Wireframes would be the sketches/drawings you made of how you planned to layout your application components -->
 
 ![Trivia Game - Google Chrome 2_23_2021 6_10_04 PM](https://user-images.githubusercontent.com/47430018/108920550-d3c75400-7602-11eb-87ea-b6c7e827ebb8.png)
 
@@ -33,6 +38,8 @@ https://sweetalert2.github.io/
 
 ## Installation Instructions
 
+<!-- Here I would add the steps for someone to clone your repo and run it locally on their machine -->
+
 No installations needed.
 
 ## User Stories
@@ -40,6 +47,8 @@ No installations needed.
 The users of this in broswer game will be anyone who likes Superheroes and trivia games. Users should expect to be prompted when they score a point or lose a life. They also want to be notified if they win or lose the game. This way, the game is much more fun and interactive.
 
 ## Contribute
+
+<!-- Here I'd differentiate between issues and pull requests. An issue is a place to report bugs and other issues, while a pull request would include the changed code to fix a bug or other issue -->
 
 Suggestions on improvement are always welcome! Open an issue and explain what you would like to change. Then make a pull request. Thank you!
 

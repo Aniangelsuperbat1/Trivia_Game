@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Superhero Game</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="./Favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./Favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./Favicon/favicon-16x16.png">
-    <link rel="manifest" href="./Favicon/site.webmanifest">
-</head>
-<body>
-    <h2 id="counter">Time left: <span id="timeLeft">30</span></h2>
-    <div class="countUp">
-        <h1 id="Score">Score</h1>
-        <h2 id ="keepTrack">0</h2>
-    </div>
-    <div class= "hero">
-        <h1 id="life">Life</h1>
-        <h2 class= "num">❤️❤️❤️</h2> 
-    </div>
-    <section class="box">
-        <h1 id="question">PRESS START WHEN READY!</h1>
-    </section>
-    <div class="container">
-        <button id="start">Start</button>
-        <button id="next" class="hide">Next</button>
-    </div>
-    <div class="anotherContainer">
-        <input type="text" class="answer" placeholder="Answer Question Here">
-        <button id="subAnswer">Submit</button>  
-    </div>  
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script src="triviaQ.js"></script>
-<script src="main.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Superhero Game</title>
+		<link rel="stylesheet" href="styles.css" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./Favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./Favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="./Favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="./Favicon/site.webmanifest" />
+	</head>
+	<body>
+		<h2 id="counter">Time left: <span id="timeLeft">30</span></h2>
+		<div class="countUp">
+			<h1 id="Score">Score</h1>
+			<h2 id="keepTrack">0</h2>
+		</div>
+		<div class="hero">
+			<!-- consider using another heading element here -->
+			<h1 id="life">Life</h1>
+			<h2 class="num">❤️❤️❤️</h2>
+		</div>
+		<section class="box">
+			<!-- consider using another heading element here -->
+
+			<h1 id="question">PRESS START WHEN READY!</h1>
+		</section>
+		<div class="container">
+			<button id="start">Start</button>
+			<button id="next" class="hide">Next</button>
+		</div>
+		<div class="anotherContainer">
+			<!-- this should be wrapped in a form element, and also have a label element for accessibility  -->
+			<input type="text" class="answer" placeholder="Answer Question Here" />
+			<button id="subAnswer">Submit</button>
+		</div>
+		<!-- i think the script tag here lost the "https:" before the src  -->
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+		<script src="triviaQ.js"></script>
+		<script src="main.js"></script>
+	</body>
 </html>
